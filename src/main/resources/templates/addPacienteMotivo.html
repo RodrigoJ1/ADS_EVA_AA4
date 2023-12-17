@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Developer</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{../css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+	<h1>Agregar Motivos</h1>
+	<form th:action="@{'/paciente/' + ${paciente.id} + '/motivo'}" method="get" enctype="multipart/form-data">
+	<div class="col-md-4">
+		<div class="panel panel-default">
+		 <div class="panel-heading">Paciente info</div>
+		 <div class="panel-body" style="padding-left: 5px;">
+			Name: <b th:text="${paciente.firstName}" /> <b th:text="${paciente.lastName}" /><br/>
+			Email: <span th:text="${paciente.email}" /><br/>
+			Motivo de Atencion: <span th:text="${paciente.reason}" /><br/>
+			<br/>Motivo:
+				<span th:each="motivo : ${paciente.motivo}">
+					<br/>&nbsp;&nbsp;<span th:text="${motivo.name}" />
+				</span>
+				<br/>
+				</div>
+		</div>	
+			<div class="col-md-6">
+			<select class="form-control" name="motivoId">
+				<option th:each="motivo : ${motivo}" 
+					th:value="${motivo.motivoid}" 
+					th:text="${motivo.name}">Motivo</option>
+			</select>
+			</div>
+			<hr>
+			<input type="submit" name="action" class="btn btn-primary" value="Save"></input>
+			<input type="submit" name="action" class="btn btn-secondary" value="Cancel"></input>
+	</div>
+	</form>
+</div>
+</body>
+</html>

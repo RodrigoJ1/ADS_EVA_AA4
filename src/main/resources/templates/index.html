@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Citas - SustentableLife</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+            padding-top: 56px; /* Ajustar el cuerpo del documento para dejar espacio para el navbar */
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .jumbotron {
+            background: url('https://via.placeholder.com/1600x600') center/cover no-repeat; /* Reemplazar con la imagen real */
+            color: white;
+            padding: 100px 0;
+        }
+
+        .doctor-card {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Incluir el Navbar -->
+    <th:block th:include="navbar.html"></th:block>
+
+    <!-- Jumbotron / Hero Section -->
+    <div class="jumbotron">
+        <h1 class="display-4">Bienvenido a SustentableLife</h1>
+        <p class="lead">Tu socio en la gestión de citas médicas y cuidado de la salud.</p>
+    </div>
+
+    <!-- Ventajas del Sistema -->
+    <div class="container">
+        <h2>Ventajas de Nuestro Sistema</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Agenda de Citas Fácil</h4>
+                <p>Programa citas médicas de manera sencilla y rápida.</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Historial Médico Accesible</h4>
+                <p>Accede a tu historial médico en cualquier momento.</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Equipo Médico Especializado</h4>
+                <p>Contamos con un equipo de doctores expertos en diversas áreas.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Equipo Médico -->
+    <div class="container">
+        <h2>Nuestro Equipo Médico</h2>
+        <div class="row">
+            <div class="col-md-4 doctor-card">
+                <img src="https://via.placeholder.com/150" alt="Doctor Avatar" class="img-fluid rounded-circle">
+                <h4>Dr. Juan Pérez</h4>
+                <p>Especialidad: Cardiología</p>
+            </div>
+            <div class="col-md-4 doctor-card">
+                <img src="https://via.placeholder.com/150" alt="Doctor Avatar" class="img-fluid rounded-circle">
+                <h4>Dra. María Gómez</h4>
+                <p>Especialidad: Pediatría</p>
+            </div>
+            <div class="col-md-4 doctor-card">
+                <img src="https://via.placeholder.com/150" alt="Doctor Avatar" class="img-fluid rounded-circle">
+                <h4>Dr. Roberto Rodríguez</h4>
+                <p>Especialidad: Ortopedia</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Videos sobre Consejos de Salud -->
+    <div class="container">
+        <h2>Videos sobre Consejos de Salud</h2>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Ubicación de la Empresa -->
+    <div class="container">
+        <h2>Encuéntranos</h2>
+        <p>Nuestra oficina principal está ubicada en:</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.590503703707!2d-75.16522148517643!3d39.95373699070859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c61f38f9a2e3%3A0x89c6c61f38f9a2e3!2sLiberty%20Bell!5e0!3m2!1sen!2sus!4v1613135141574!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Incluir el Footer -->
+    <th:block th:include="footer.html"></th:block>
+
+    <!-- Agregamos los scripts de Bootstrap y jQuery al final del documento -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

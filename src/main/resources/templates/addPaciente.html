@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agregar Paciente</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+	<div class="row justify-content-center align-items-center" style="height: 100vh;">
+		<div class="col-md-4">
+			<h1 class="text-center">Nuevo Paciente</h1>
+			<form th:object="${paciente}" th:action="@{save}" action="#" method="post">
+				<input type="text" th:field="*{firstName}" class="form-control" placeholder="Nombres" />
+				<div style="clear: both; display: block; height: 10px;"></div>
+				<input type="text" th:field="*{lastName}" class="form-control" placeholder="Apellidos" />
+				<div style="clear: both; display: block; height: 10px;"></div>
+				<input type="text" th:field="*{reason}" class="form-control" placeholder="Motivo" />
+				<div style="clear: both; display: block; height: 10px;"></div>	
+				<input type="text" th:field="*{email}" class="form-control" placeholder="Email" />
+				<div style="clear: both; display: block; height: 10px;"></div>
+				<input type="submit" name="action" class="btn btn-primary" value="Guardar"></input>
+				<input type="submit" name="action" class="btn btn-secondary" value="Cancelar"></input>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>

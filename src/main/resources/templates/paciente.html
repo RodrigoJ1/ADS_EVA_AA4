@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Citas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+    <style>
+        body {
+            background-color: #f8f9fa, ;
+        }
+
+        .main-container {
+            max-width: 1200px; /* Ajusta el ancho máximo según tus necesidades */
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">SustentableLife</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/index}">Inicio</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/login}">Agendar Cita</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/login}">Ver Historial Médico</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contactanos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sobre Nosotros</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <div class="main-container">
+        <div class="col-md-4">
+            <h1>Citas Medicas Pendientes</h1>
+        </div>
+        <div class="col-md-4" style="padding:20px 0">
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Salir" class="btn btn-danger"/>
+            </form>
+        </div>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Motivo de Atencion</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>  
+            <tr th:each="paciente : ${paciente}">
+                <td th:text="${paciente.firstName} + ' ' + ${paciente.lastName}"></td>
+                <td th:text="${paciente.email}"></td>
+                <td th:text="${paciente.reason}"></td>
+                <td>
+                    <span th:each="motivo,iterStat : ${paciente.motivo}">
+                        <span th:text="${motivo.name}"/><th:block th:if="${!iterStat.last}">,</th:block>
+                    </span>    		
+                </td>
+                <td>
+                    <a th:href="@{/addPacienteMotivo/{id}(id=${paciente.id})}" class="btn btn-primary btn-sm">Cambiar Estado</a>
+                    <a th:href="@{/edit/{id}(id=${paciente.id})}" class="btn btn-primary btn-sm">Editar</a>
+                    <a sec:authorize="hasRole('ADMIN')" th:href="@{/delete/{id}(id=${paciente.id})}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        </table>
+        <a href="/add" class="btn btn-primary">Agregar Paciente</a>
+    </div>    
+</body>
+</html>

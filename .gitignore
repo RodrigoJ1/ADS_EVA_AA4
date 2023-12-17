@@ -1,0 +1,5 @@
+/target/
+local.properties
+.settings/
+.classpath
+.project
